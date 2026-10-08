@@ -4,10 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ukrainian Rotary Impact Club of Rutland</title>
+    <!-- Подключаем фавикон -->
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <style>
         :root {
             --primary: #1e3a8a; /* Глубокий синий */
+            --accent-blue: #3b82f6;
+            --accent-yellow: #f59e0b; /* Теплый желтый */
             --text-main: #1f2937;
             --text-muted: #4b5563;
             --border-color: #e5e7eb;
@@ -17,7 +20,6 @@
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             line-height: 1.7;
             color: var(--text-main);
-            /* Стильный многослойный фон с глубоким синим и теплыми нотками */
             background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 50%, #1e293b 100%);
             background-attachment: fixed;
             margin: 0;
@@ -28,8 +30,8 @@
         .container {
             max-width: 850px;
             margin: 0 auto;
-            background: rgba(255, 255, 255, 0.95); /* Легкая полупрозрачность для глубины */
-            backdrop-filter: blur(10px); /* Эффект матового стекла */
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(10px);
             padding: 50px 40px;
             border-radius: 20px;
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
@@ -37,7 +39,7 @@
 
         .header {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 35px;
         }
 
         .logo {
@@ -46,6 +48,18 @@
             margin-bottom: 20px;
         }
 
+        .intro-box {
+            background: linear-gradient(135deg, #eff6ff 0%, #fef3c7 100%);
+            border: 1px solid #dbeafe;
+            border-radius: 14px;
+            padding: 25px 30px;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+            color: var(--text-main);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        }
+
+        /* Стильные карточки с цветными акцентными линиями слева */
         .section-card {
             background: #ffffff;
             border: 1px solid var(--border-color);
@@ -54,7 +68,23 @@
             margin-bottom: 25px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.02);
             transition: transform 0.2s ease, box-shadow 0.2s ease;
+            position: relative;
+            overflow: hidden;
         }
+
+        .section-card::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 5px;
+        }
+
+        /* Разные цвета боковых линий для разнообразия */
+        .card-ukraine::before { background-color: #3b82f6; /* Синий */ }
+        .card-local::before { background-color: #10b981; /* Зеленый */ }
+        .card-events::before { background-color: #f59e0b; /* Желтый / Золотой */ }
 
         .section-card:hover {
             transform: translateY(-2px);
@@ -63,12 +93,9 @@
 
         h2 {
             color: var(--primary);
-            font-size: 1.35em;
+            font-size: 1.3em;
             margin-top: 0;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            margin-bottom: 12px;
         }
 
         ul {
@@ -77,14 +104,15 @@
         }
 
         li {
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             color: var(--text-muted);
         }
 
         .trust-info {
-            margin-top: 40px;
+            margin-top: 35px;
             padding: 25px 30px;
-            background-color: #eff6ff;
+            background-color: #f8fafc;
+            border: 1px solid #e2e8f0;
             border-left: 5px solid var(--primary);
             border-radius: 10px;
             font-size: 0.95em;
@@ -99,10 +127,25 @@
         }
 
         .contacts {
-            margin-top: 40px;
+            margin-top: 35px;
             padding-top: 25px;
             border-top: 1px solid var(--border-color);
             text-align: center;
+        }
+
+        .emails-list {
+            margin: 10px 0 15px 0;
+        }
+
+        .email-link {
+            color: var(--primary);
+            font-weight: bold;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        .email-link:hover {
+            text-decoration: underline;
         }
 
         .btn-facebook {
@@ -113,7 +156,6 @@
             border-radius: 30px;
             text-decoration: none;
             font-weight: bold;
-            margin-top: 15px;
             box-shadow: 0 4px 10px rgba(24, 119, 242, 0.3);
             transition: background-color 0.2s, transform 0.2s;
         }
@@ -123,30 +165,16 @@
             transform: translateY(-2px);
         }
 
-        .email-link {
-            color: var(--primary);
-            font-weight: bold;
-            text-decoration: none;
-        }
-
-        .email-link:hover {
-            text-decoration: underline;
-        }
-
         footer {
-            margin-top: 40px;
+            margin-top: 35px;
             font-size: 0.85em;
             color: #9ca3af;
             text-align: center;
         }
 
         @media (max-width: 600px) {
-            body {
-                padding: 15px 10px;
-            }
-            .container {
-                padding: 25px 15px;
-            }
+            body { padding: 15px 10px; }
+            .container { padding: 25px 15px; }
         }
     </style>
 </head>
@@ -156,12 +184,13 @@
             <img src="Rotary Logo.png" alt="Ukrainian Rotary Impact Club of Rutland Logo" class="logo">
         </div>
 
-        <p style="font-size: 1.15em; color: var(--text-muted); text-align: center; margin-bottom: 40px;">
+        <!-- Приветственный блок с мягким цветным градиентом -->
+        <div class="intro-box">
             We are the <strong>Ukrainian Rotary Impact Club of Rutland</strong>, a vibrant community initiative driven by Ukrainians in the UK. We believe in the power of unity, mutual support, and active compassion that knows no borders.
-        </p>
+        </div>
 
-        <div class="section-card">
-            <h2>🌍 Supporting Ukraine</h2>
+        <div class="section-card card-ukraine">
+            <h2> Supporting Ukraine</h2>
             <p>Our hearts remain deeply connected to our homeland. We stand with Ukraine by organizing targeted humanitarian aid, including:</p>
             <ul>
                 <li>Collecting and delivering essential mobility equipment directly where it is most needed.</li>
@@ -169,8 +198,8 @@
             </ul>
         </div>
 
-        <div class="section-card">
-            <h2>🤝 Giving Back to Our Local Community in the UK</h2>
+        <div class="section-card card-local">
+            <h2> Giving Back to Our Local Community in the UK</h2>
             <p>We are profoundly grateful to the UK and the Rutland community for welcoming us. To give back and strengthen our shared home, we proudly support local initiatives:</p>
             <ul>
                 <li>Donating to local food banks to help families facing hardship.</li>
@@ -178,8 +207,8 @@
             </ul>
         </div>
 
-        <div class="section-card">
-            <h2>✨ Bringing People Together</h2>
+        <div class="section-card card-events">
+            <h2> Bringing People Together</h2>
             <p>To fund these causes and foster strong, lasting bonds between Ukrainians and locals, we host vibrant community events, including charity concerts and fairs. Through culture, connection, and shared action, we build a better future together.</p>
         </div>
 
@@ -190,8 +219,11 @@
 
         <div class="contacts">
             <p><strong>Get in Touch:</strong></p>
-            <p>Email: <a href="mailto:office@uarotaryinuk.org" class="email-link">office@uarotaryinuk.org</a></p>
-            <p>
+            <div class="emails-list">
+                <a href="mailto:office@uarotaryinuk.org" class="email-link">office@uarotaryinuk.org</a> | 
+                <a href="mailto:uarotaryinuk@gmail.com" class="email-link">uarotaryinuk@gmail.com</a>
+            </div>
+            <p style="margin-top: 15px;">
                 <a href="https://www.facebook.com/profile.php?id=61568504140083" target="_blank" class="btn-facebook">Visit our Facebook Page</a>
             </p>
         </div>
