@@ -11,16 +11,17 @@
             --primary: #1e3a8a; /* Глубокий синий */
             --accent-blue: #3b82f6;
             --accent-yellow: #f59e0b; /* Теплый желтый */
-            --text-main: #1f2937;
-            --text-muted: #4b5563;
-            --border-color: #e5e7eb;
+            --text-main: #2d3748;
+            --text-muted: #4a5568;
+            --border-color: #e2e8f0;
         }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             line-height: 1.7;
             color: var(--text-main);
-            background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 50%, #1e293b 100%);
+            /* Теплый и уютный натуральный фон вместо белого */
+            background: linear-gradient(135deg, #f7f4ed 0%, #ede6db 100%);
             background-attachment: fixed;
             margin: 0;
             padding: 40px 20px;
@@ -30,11 +31,12 @@
         .container {
             max-width: 850px;
             margin: 0 auto;
-            background: rgba(255, 255, 255, 0.96);
+            background: #fffdf9; /* Теплый кремово-белый фон основной карточки */
             backdrop-filter: blur(10px);
             padding: 50px 40px;
             border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 12px 35px rgba(60, 50, 40, 0.08);
+            border: 1px solid #ebdcc5;
         }
 
         .header {
@@ -170,7 +172,7 @@
         footer {
             margin-top: 35px;
             font-size: 0.85em;
-            color: #9ca3af;
+            color: #a0aec0;
             text-align: center;
         }
 
